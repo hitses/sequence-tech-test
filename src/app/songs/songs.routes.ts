@@ -8,16 +8,16 @@ const routes: Routes = [
       {
         path: 'add',
         pathMatch: 'full',
-        loadComponent: () => import('./add-song/add-song.component'),
+        loadComponent: () => import('./pages/add-song/add-song.component'),
       },
       {
         path: ':id',
-        loadComponent: () => import('./song/song.component'),
+        loadComponent: () => import('./pages/song/song.component'),
       },
       {
         path: '',
         pathMatch: 'full',
-        loadComponent: () => import('./songs-list/songs-list.component'),
+        loadComponent: () => import('./pages/songs-list/songs-list.component'),
       },
     ],
   },
