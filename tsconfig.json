@@ -6,7 +6,8 @@
     "baseUrl": "./src/",
     "paths": {
       "@app/*": ["app/*"],
-      "@config/*": ["app/config/*"]
+      "@config/*": ["app/config/*"],
+      "@songs/*": ["app/songs/*"]
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
