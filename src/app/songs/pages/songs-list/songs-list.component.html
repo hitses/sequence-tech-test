@@ -1,1 +1,14 @@
-<p>songs works!</p>
+@if (songs().length <= 0) {
+<p>Cargando canciones...</p>
+} @else {
+<div class="songs-list">
+  @for (song of songs(); track $index) {
+  <song-card-component
+    [title]="song.title"
+    [artist]="song.title"
+    [img]="song.poster"
+    [genres]="song.genre"
+  />
+  }
+</div>
+}
