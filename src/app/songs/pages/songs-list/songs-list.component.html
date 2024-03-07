@@ -5,7 +5,7 @@
   @for (song of songs(); track $index) {
   <song-card-component
     [title]="song.title"
-    [artist]="song.title"
+    [artist]="getArtistName(song.artist)"
     [img]="song.poster"
     [genres]="song.genre"
   />
