@@ -3,7 +3,7 @@ import { Injectable, inject, signal } from '@angular/core';
 
 import { environment } from '@env/environment';
 
-import { Song } from '@app/songs/models/song.interface';
+import { Song } from '@app/shared/models/song.interface';
 import { tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

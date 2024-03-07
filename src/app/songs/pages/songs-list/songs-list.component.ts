@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 
 import { SongCardComponent } from '@app/songs/components/song-card/song-card.component';
 
-import { SongsService } from '@app/songs/songs.service';
+import { SongsService } from '@app/shared/songs.service';
 
 @Component({
   selector: 'app-songs',
