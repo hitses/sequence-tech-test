@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Song } from '@app/songs/models/song.interface';
 
 @Component({
   selector: 'song-card-component',
@@ -9,8 +10,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './song-card.component.scss',
 })
 export class SongCardComponent {
-  @Input() title!: string;
-  @Input() artist!: string;
-  @Input() img!: string;
-  @Input() genres!: string[];
+  song = input.required<Song>();
 }

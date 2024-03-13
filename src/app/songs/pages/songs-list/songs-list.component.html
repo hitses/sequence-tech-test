@@ -3,12 +3,7 @@
 } @else {
 <div class="songs-list">
   @for (song of songs(); track $index) {
-  <song-card-component
-    [title]="song.title"
-    [artist]="song.title"
-    [img]="song.poster"
-    [genres]="song.genre"
-  />
+  <song-card-component [song]="song" />
   }
 </div>
 }
