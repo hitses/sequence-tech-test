@@ -12,6 +12,8 @@
   h2 {
     padding: 15px;
     flex: 1;
+    text-wrap: balance;
+    font-size: 15px;
   }
   img {
     max-width: 100%;
@@ -21,9 +23,12 @@
   ul {
     display: inline-flex;
     gap: 10px;
+    height: 65px;
     flex-wrap: wrap;
-    flex: 1;
     padding: 15px;
+    li {
+      font-size: 12px;
+    }
   }
   transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
