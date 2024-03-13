@@ -1,27 +1,17 @@
 # SequenceTechTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
+Este proyecto ha sido generado con Angular CLI versión 17.0.1.
 
-## Development server
+## Configuración
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Instalar dependencias con `npm install`.
 
-## Code scaffolding
+## API de desarrollo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ejecutar `npm run api` para iniciar el servidor de desarrollo con JSON-Server.
+El servidor inicia con un retraso por defecto de 1000 milisegundos en el enlace `http://localhost:3000/`.
+El archivo con los datos de prueba se encuentra en `src/assets/mock.json`.
 
-## Build
+## Servidor de desarrollo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Ejecutar `ng start` para iniciar el proyecto frontend. El proyecto abre automáticamente una ventana en el navegador por defecto en `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos fuente.

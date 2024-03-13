@@ -19,7 +19,7 @@ export default class SongsListComponent {
   songs = this.songsService.songs;
   artists = this.artistsService.artists;
 
-  getArtistName(id: number) {
+  getArtistName(id: number): string {
     const artist = this.artists().find((artist) => artist.id === id);
     return artist ? artist.name : '';
   }

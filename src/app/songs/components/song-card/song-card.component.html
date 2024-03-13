@@ -1,9 +1,9 @@
 <div class="card">
-  <h2>{{ title }} ({{ artist }})</h2>
-  <img class="card-img-top" [src]="img" alt="Card image cap" />
+  <h2>{{ song().title }} ({{ artist() }})</h2>
+  <img class="card-img-top" [src]="song().poster" alt="Card image cap" />
   <ul>
-    @for (genre of genres; track $index) {
-    <li>#GENRE</li>
+    @for (genre of song().genre; track $index) {
+    <li>{{ genre }}</li>
     }
   </ul>
 </div>
