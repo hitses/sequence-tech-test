@@ -4,11 +4,12 @@ import { SongCardComponent } from '@app/songs/components/song-card/song-card.com
 
 import { SongsService } from '@app/shared/songs.service';
 import { ArtistsService } from '@app/shared/artists.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-songs',
   standalone: true,
-  imports: [SongCardComponent],
+  imports: [SongCardComponent, RouterLink],
   templateUrl: './songs-list.component.html',
   styleUrl: './songs-list.component.scss',
 })
