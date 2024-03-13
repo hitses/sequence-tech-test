@@ -2,6 +2,10 @@
 
 Este proyecto ha sido generado con Angular CLI versión 17.0.1.
 
+## Configuración
+
+Instalar dependencias con `npm install`.
+
 ## API de desarrollo
 
 Ejecutar `npm run api` para iniciar el servidor de desarrollo con JSON-Server.
