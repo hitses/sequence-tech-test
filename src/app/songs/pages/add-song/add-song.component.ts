@@ -1,5 +1,5 @@
 import { NgClass, TitleCasePipe } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -33,28 +33,13 @@ export default class AddSongComponent {
           Validators.maxLength(20),
         ],
       ],
-      artist: [
-        ,
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(20),
-        ],
-      ],
+      artist: [, [Validators.required, Validators.min(0)]],
       genre: [
         ,
         [
           Validators.required,
           Validators.minLength(2),
           Validators.maxLength(250),
-        ],
-      ],
-      country: [
-        ,
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(20),
         ],
       ],
       year: [
@@ -94,6 +79,8 @@ export default class AddSongComponent {
     song.genre = song.genre.map((genre: string) =>
       genre.trim().toLocaleLowerCase()
     );
+
+    song.artist = Number(song.artist);
 
     console.log(song);
   }
