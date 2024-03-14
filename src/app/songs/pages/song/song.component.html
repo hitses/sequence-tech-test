@@ -1,5 +1,6 @@
 @if(!song().title) {
 <p>Cargando canción...</p>
 } @else {
-{{ song() | json }}
+<header-component [icon]="'arrow-left'" [title]="song().title" />
+{{ song().title }}
 }
