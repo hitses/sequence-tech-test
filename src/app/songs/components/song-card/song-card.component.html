@@ -1,6 +1,6 @@
 <div class="card" routerLink="/songs/{{ song().id }}">
   <h2>{{ song().title }} ({{ artist() }})</h2>
-  <img class="card-img-top" [src]="song().poster" alt="Card image cap" />
+  <img class="card-img-top" [src]="song().poster" [alt]="song().title" />
   <ul>
     @for (genre of song().genre; track $index) {
     <li>{{ genre }}</li>
