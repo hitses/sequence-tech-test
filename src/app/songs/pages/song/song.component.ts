@@ -7,11 +7,14 @@ import { HeaderService } from '@app/shared/services/header.service';
 import { Song } from '@app/shared/models/song.interface';
 import { ArtistsService } from '@app/shared/services/artists.service';
 import { Artist } from '@app/shared/models/artist.interface';
+import { CompaniesService } from '@app/shared/services/companies.service';
+import { Company } from '@app/shared/models/company.interface';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-song',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, JsonPipe],
   templateUrl: './song.component.html',
   styleUrl: './song.component.scss',
 })
@@ -19,16 +22,18 @@ export default class SongComponent {
   private route = inject(ActivatedRoute);
   private readonly songsService = inject(SongsService);
   private readonly artistsService = inject(ArtistsService);
+  private readonly companiesService = inject(CompaniesService);
   private readonly headerService = inject(HeaderService);
 
   song = this.songsService.song;
   artist = this.artistsService.artist;
+  company = this.companiesService.company;
 
   constructor() {
     this.route.params
       .pipe(
         switchMap(async ({ id }) => {
-          this.songsService.getSongAndArtistById(id);
+          this.songsService.getSongById(id);
         })
       )
       .subscribe();
@@ -41,6 +46,7 @@ export default class SongComponent {
   ngOnDestroy() {
     this.song.set({} as Song);
     this.artist.set({} as Artist);
+    this.company.set({} as Company[]);
   }
 
   convertToMinutes(seconds: number): string {

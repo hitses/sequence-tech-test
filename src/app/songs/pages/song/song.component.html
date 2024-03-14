@@ -39,12 +39,21 @@
       <p>&nbsp;{{ artist().name }}</p>
     </div>
 
-    <h3>Compañía discográfica</h3>
+    @if (company().length >= 1) {
+    <h3>
+      {{
+        company().length > 1
+          ? "Compañías discográficas"
+          : "Compañía discográfica"
+      }}
+    </h3>
 
     <ul class="companies">
-      <li>una</li>
-      <li>dos</li>
+      @for (comp of company(); track $index) {
+      <li>{{ comp.name }}</li>
+      }
     </ul>
+    }
 
     <div class="apart">
       <h3>País:</h3>
