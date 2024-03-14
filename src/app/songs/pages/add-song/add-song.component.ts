@@ -68,11 +68,7 @@ export default class AddSongComponent {
   }
 
   ngOnInit() {
-    this.headerService.headerAction.subscribe((action) => {
-      if (action === 'back') {
-        this.router.navigate(['songs']);
-      }
-    });
+    this.headerService.headerAction.subscribe();
   }
 
   validField(field: string) {
