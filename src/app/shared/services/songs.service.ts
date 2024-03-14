@@ -55,4 +55,13 @@ export class SongsService {
       catchError((error) => throwError(() => error))
     );
   }
+
+  deleteSongById(id: number) {
+    return this.http.delete<Song>(`${this.url}/songs/${id}`).pipe(
+      tap(() => {
+        this.getSongs();
+      }),
+      catchError((error) => throwError(() => error))
+    );
+  }
 }
