@@ -1,5 +1,7 @@
 <header-component [icon]="'menu'" [title]="'Canciones'" />
 
+<side-menu-component />
+
 @if (songs().length <= 0) {
 <p>Cargando canciones...</p>
 } @else {
