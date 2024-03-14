@@ -1,6 +1,11 @@
-@if(!song().title) {
+@if(!song().title || !artist().name) {
 <p>Cargando canción...</p>
 } @else {
-<header-component [icon]="'arrow-left'" [title]="song().title" />
-{{ song().title }}
+<header-component
+  [icon]="'arrow-left'"
+  title="{{ song().title }} ({{ artist().name }})"
+/>
+<section>
+  <h1>{{ song().title }} ({{ artist().name }})</h1>
+</section>
 }
