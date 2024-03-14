@@ -1,3 +1,5 @@
+<header-component [icon]="'menu'" [title]="'Canciones'" />
+
 @if (songs().length <= 0) {
 <p>Cargando canciones...</p>
 } @else {
@@ -8,6 +10,6 @@
 </div>
 
 <button routerLink="/songs/add">
-  <img src="/assets/imgs/plus.svg" alt="Button to add new song" />
+  <img src="/assets/imgs/plus.svg" alt="Botón para añadir una nueva canción" />
 </button>
 }
