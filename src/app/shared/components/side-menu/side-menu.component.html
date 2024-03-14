@@ -1,33 +1,33 @@
 <nav [class.open]="sideMenuService.isOpen()">
   <header>
-    <h2>Menú</h2>
+    <h2>{{ "songs.menu.title" | translate }}</h2>
     <img
       src="assets/imgs/x.svg"
-      alt="Icono para cerrar menú"
+      [alt]="'songs.menu.closeAlt' | translate"
       (click)="closeMenu()"
     />
   </header>
 
   <ul>
     <li>
-      <p>Canciones</p>
+      <p>{{ "songs.menu.songs" | translate }}</p>
       <img
         src="assets/imgs/arrow-right.svg"
-        alt="Icono de flecha hacia la derecha"
+        [alt]="'songs.menu.arrowRightAlt' | translate"
       />
     </li>
     <li>
-      <p>Artistas</p>
+      <p>{{ "songs.menu.artists" | translate }}</p>
       <img
         src="assets/imgs/arrow-right.svg"
-        alt="Icono de felcha hacia la derecha"
+        [alt]="'songs.menu.arrowRightAlt' | translate"
       />
     </li>
     <li>
-      <p>Compañías discográficas</p>
+      <p>{{ "songs.menu.companies" | translate }}</p>
       <img
         src="assets/imgs/arrow-right.svg"
-        alt="Icono de felcha hacia la derecha"
+        [alt]="'songs.menu.arrowRightAlt' | translate"
       />
     </li>
   </ul>
