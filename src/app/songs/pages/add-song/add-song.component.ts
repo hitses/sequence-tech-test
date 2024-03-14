@@ -7,10 +7,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ArtistsService } from '@app/shared/artists.service';
+import { ArtistsService } from '@app/shared/services/artists.service';
 import { HeaderComponent } from '@app/shared/components/header/header.component';
-import { HeaderService } from '@app/shared/header.service';
-import { SongsService } from '@app/shared/songs.service';
+import { HeaderService } from '@app/shared/services/header.service';
+import { SongsService } from '@app/shared/services/songs.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

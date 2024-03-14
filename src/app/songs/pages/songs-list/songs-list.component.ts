@@ -2,13 +2,13 @@ import { Component, inject } from '@angular/core';
 
 import { SongCardComponent } from '@app/songs/components/song-card/song-card.component';
 
-import { SongsService } from '@app/shared/songs.service';
-import { ArtistsService } from '@app/shared/artists.service';
+import { SongsService } from '@app/shared/services/songs.service';
+import { ArtistsService } from '@app/shared/services/artists.service';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '@app/shared/components/header/header.component';
-import { HeaderService } from '@app/shared/header.service';
+import { HeaderService } from '@app/shared/services/header.service';
 import { SideMenuComponent } from '@app/shared/components/side-menu/side-menu.component';
-import { SideMenuService } from '@app/shared/side-menu.service';
+import { SideMenuService } from '@app/shared/services/side-menu.service';
 
 @Component({
   selector: 'app-songs',

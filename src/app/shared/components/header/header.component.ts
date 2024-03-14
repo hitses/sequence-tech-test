@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import { HeaderService } from '@app/shared/header.service';
+import { HeaderService } from '@app/shared/services/header.service';
 
 @Component({
   selector: 'header-component',

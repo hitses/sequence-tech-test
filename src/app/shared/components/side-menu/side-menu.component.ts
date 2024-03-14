@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { SideMenuService } from '@app/shared/side-menu.service';
+import { SideMenuService } from '@app/shared/services/side-menu.service';
 
 @Component({
   selector: 'side-menu-component',
