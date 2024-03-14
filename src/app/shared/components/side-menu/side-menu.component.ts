@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SideMenuService } from '@app/shared/side-menu.service';
 
 @Component({
   selector: 'side-menu-component',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './side-menu.component.html',
   styleUrl: './side-menu.component.scss',
 })
-export class SideMenuComponent {}
+export class SideMenuComponent {
+  readonly sideMenuService = inject(SideMenuService);
+
+  closeMenu() {
+    this.sideMenuService.closeMenu();
+  }
+}

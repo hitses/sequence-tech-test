@@ -1,7 +1,11 @@
-<nav>
+<nav [class.open]="sideMenuService.isOpen">
   <header>
     <h2>Menú</h2>
-    <img src="assets/imgs/x.svg" alt="Icono para cerrar menú" />
+    <img
+      src="assets/imgs/x.svg"
+      alt="Icono para cerrar menú"
+      (click)="closeMenu()"
+    />
   </header>
 
   <ul>
