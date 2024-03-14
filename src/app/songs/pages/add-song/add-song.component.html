@@ -1,1 +1,72 @@
-<p>add-song works!</p>
+<form [formGroup]="addSongForm" (ngSubmit)="addSong()">
+  <fieldset>
+    <legend>Canción</legend>
+
+    <label [ngClass]="!validField('name') ? '' : 'error-text'"
+      ><p>{{ !validField("name") ? "Título" : "Título inválido" }}</p>
+      <input
+        type="text"
+        placeholder="Indica el título de la canción"
+        formControlName="name"
+      />
+    </label>
+
+    <label [ngClass]="!validField('genre') ? '' : 'error-text'"
+      ><p>{{ !validField("genre") ? "Géneros" : "Géneros inválidos" }}</p>
+      <input
+        type="text"
+        placeholder="Añade géneros separados por comas"
+        formControlName="genre"
+      />
+    </label>
+
+    <label [ngClass]="!validField('year') ? '' : 'error-text'"
+      ><p>{{ !validField("year") ? "Año" : "Año inválido" }}</p>
+      <input
+        type="number"
+        placeholder="Indica el año de lanzamiento"
+        formControlName="year"
+      />
+    </label>
+
+    <label [ngClass]="!validField('duration') ? '' : 'error-text'"
+      ><p>{{ !validField("duration") ? "Duración" : "Duración inválida" }}</p>
+      <input
+        type="number"
+        placeholder="Indica la duración de la canción en segundos"
+        formControlName="duration"
+      />
+    </label>
+
+    <label [ngClass]="!validField('rating') ? '' : 'error-text'"
+      ><p>{{ !validField("rating") ? "Puntuación" : "Puntuación inválida" }}</p>
+      <input
+        type="number"
+        placeholder="Indica la puntuación de la canción"
+        formControlName="rating"
+      />
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Artistas</legend>
+
+    <label [ngClass]="!validField('artist') ? '' : 'error-text'"
+      ><p>{{ !validField("artist") ? "Nombre" : "Nombre inválido" }}</p>
+      <select formControlName="artist">
+        @for (artist of artists(); track $index) {
+        <option [value]="artist.id">
+          {{ artist.name | titlecase }}
+        </option>
+        }
+      </select>
+      <!-- <input
+        type="text"
+        placeholder="Indica uno o más artistas"
+        formControlName="artist"
+      /> -->
+    </label>
+  </fieldset>
+
+  <button type="submit" [disabled]="!addSongForm.valid">Crear</button>
+</form>

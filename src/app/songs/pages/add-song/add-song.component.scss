@@ -1,0 +1,51 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    legend {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    label {
+      margin-bottom: 10px;
+      font-size: 0.8rem;
+      p {
+        margin-bottom: 10px;
+      }
+      input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      input::placeholder {
+        font-size: 0.8rem;
+        color: #aaa;
+      }
+    }
+  }
+  button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  button:disabled {
+    background-color: #aaa;
+  }
+}
+
+.error-text {
+  color: tomato;
+}
