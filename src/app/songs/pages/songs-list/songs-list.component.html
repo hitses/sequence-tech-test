@@ -1,4 +1,4 @@
-<header-component [icon]="'menu'" [title]="'Canciones'" />
+<header-component [icon]="'menu'" [title]="'songs.title' | translate" />
 
 <side-menu-component />
 
@@ -12,6 +12,6 @@
 </div>
 
 <button routerLink="/songs/add">
-  <img src="/assets/imgs/plus.svg" alt="Botón para añadir una nueva canción" />
+  <img src="/assets/imgs/plus.svg" [alt]="'songs.addSongButton' | translate" />
 </button>
 }

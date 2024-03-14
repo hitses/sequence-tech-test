@@ -9,11 +9,18 @@ import { HeaderComponent } from '@app/shared/components/header/header.component'
 import { HeaderService } from '@app/shared/services/header.service';
 import { SideMenuComponent } from '@app/shared/components/side-menu/side-menu.component';
 import { SideMenuService } from '@app/shared/services/side-menu.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-songs',
   standalone: true,
-  imports: [SongCardComponent, RouterLink, HeaderComponent, SideMenuComponent],
+  imports: [
+    SongCardComponent,
+    RouterLink,
+    HeaderComponent,
+    SideMenuComponent,
+    TranslateModule,
+  ],
   templateUrl: './songs-list.component.html',
   styleUrl: './songs-list.component.scss',
 })
