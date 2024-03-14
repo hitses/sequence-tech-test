@@ -8,13 +8,15 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ArtistsService } from '@app/shared/artists.service';
+import { HeaderComponent } from '@app/shared/components/header/header.component';
+import { HeaderService } from '@app/shared/header.service';
 import { SongsService } from '@app/shared/songs.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-song',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, TitleCasePipe],
+  imports: [ReactiveFormsModule, NgClass, TitleCasePipe, HeaderComponent],
   templateUrl: './add-song.component.html',
   styleUrl: './add-song.component.scss',
 })
@@ -23,6 +25,7 @@ export default class AddSongComponent {
   private readonly router = inject(Router);
   private readonly songsService = inject(SongsService);
   private readonly artistsService = inject(ArtistsService);
+  private readonly headerService = inject(HeaderService);
   private readonly toastr = inject(ToastrService);
 
   artists = this.artistsService.artists;
@@ -61,6 +64,14 @@ export default class AddSongComponent {
         [Validators.required, Validators.min(0), Validators.max(3600)],
       ],
       rating: [, [Validators.required, Validators.min(0), Validators.max(10)]],
+    });
+  }
+
+  ngOnInit() {
+    this.headerService.headerAction.subscribe((action) => {
+      if (action === 'back') {
+        this.router.navigate(['songs']);
+      }
     });
   }
 
