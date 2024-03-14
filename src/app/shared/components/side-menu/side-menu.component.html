@@ -1,4 +1,4 @@
-<nav [class.open]="sideMenuService.isOpen">
+<nav [class.open]="sideMenuService.isOpen()">
   <header>
     <h2>Menú</h2>
     <img
@@ -13,7 +13,7 @@
       <p>Canciones</p>
       <img
         src="assets/imgs/arrow-right.svg"
-        alt="Icono de felcha hacia la derecha"
+        alt="Icono de flecha hacia la derecha"
       />
     </li>
     <li>
