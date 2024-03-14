@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" routerLink="/songs/{{ song().id }}">
   <h2>{{ song().title }} ({{ artist() }})</h2>
   <img class="card-img-top" [src]="song().poster" alt="Card image cap" />
   <ul>
