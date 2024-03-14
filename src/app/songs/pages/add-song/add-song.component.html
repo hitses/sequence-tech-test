@@ -1,54 +1,97 @@
-<header-component [icon]="'arrow-left'" [title]="'Nueva canción'" />
+<header-component
+  [icon]="'arrow-left'"
+  [title]="'songs.addSong.title' | translate"
+/>
 
 @if (artists().length <= 0) {
-<p>Cargando...</p>
+<p>Cargando formulario...</p>
 } @else {
 
 <form [formGroup]="addSongForm" (ngSubmit)="addSong()">
   <fieldset>
-    <legend>Canción</legend>
+    <legend>{{ "songs.addSong.form.fieldSong.legend" | translate }}</legend>
 
     <label [ngClass]="!validField('title') ? '' : 'error-text'"
-      ><p>{{ !validField("title") ? "Título" : "Título inválido" }}</p>
+      ><p>
+        {{
+          !validField("title")
+            ? ("songs.addSong.form.fieldSong.title" | translate)
+            : ("songs.addSong.form.fieldSong.titleError" | translate)
+        }}
+      </p>
       <input
         type="text"
-        placeholder="Indica el título de la canción"
+        [placeholder]="
+          'songs.addSong.form.fieldSong.titlePlaceholder' | translate
+        "
         formControlName="title"
       />
     </label>
 
     <label [ngClass]="!validField('genre') ? '' : 'error-text'"
-      ><p>{{ !validField("genre") ? "Géneros" : "Géneros inválidos" }}</p>
+      ><p>
+        {{
+          !validField("genre")
+            ? ("songs.addSong.form.fieldSong.genres" | translate)
+            : ("songs.addSong.form.fieldSong.genresError" | translate)
+        }}
+      </p>
       <input
         type="text"
-        placeholder="Añade géneros separados por comas"
+        [placeholder]="
+          'songs.addSong.form.fieldSong.genresPlaceholder' | translate
+        "
         formControlName="genre"
       />
     </label>
 
     <label [ngClass]="!validField('year') ? '' : 'error-text'"
-      ><p>{{ !validField("year") ? "Año" : "Año inválido" }}</p>
+      ><p>
+        {{
+          !validField("year")
+            ? ("songs.addSong.form.fieldSong.year" | translate)
+            : ("songs.addSong.form.fieldSong.yearError" | translate)
+        }}
+      </p>
       <input
         type="number"
-        placeholder="Indica el año de lanzamiento"
+        [placeholder]="
+          'songs.addSong.form.fieldSong.yearPlaceholder' | translate
+        "
         formControlName="year"
       />
     </label>
 
     <label [ngClass]="!validField('duration') ? '' : 'error-text'"
-      ><p>{{ !validField("duration") ? "Duración" : "Duración inválida" }}</p>
+      ><p>
+        {{
+          !validField("duration")
+            ? ("songs.addSong.form.fieldSong.duration" | translate)
+            : ("songs.addSong.form.fieldSong.durationError" | translate)
+        }}
+      </p>
       <input
         type="number"
-        placeholder="Indica la duración de la canción en segundos"
+        [placeholder]="
+          'songs.addSong.form.fieldSong.durationPlaceholder' | translate
+        "
         formControlName="duration"
       />
     </label>
 
     <label [ngClass]="!validField('rating') ? '' : 'error-text'"
-      ><p>{{ !validField("rating") ? "Puntuación" : "Puntuación inválida" }}</p>
+      ><p>
+        {{
+          !validField("rating")
+            ? ("songs.addSong.form.fieldSong.rating" | translate)
+            : ("songs.addSong.form.fieldSong.ratingError" | translate)
+        }}
+      </p>
       <input
         type="number"
-        placeholder="Indica la puntuación de la canción"
+        [placeholder]="
+          'songs.addSong.form.fieldSong.ratingPlaceholder' | translate
+        "
         formControlName="rating"
       />
     </label>
@@ -58,7 +101,13 @@
     <legend>Artistas</legend>
 
     <label [ngClass]="!validField('artist') ? '' : 'error-text'"
-      ><p>{{ !validField("artist") ? "Nombre" : "Nombre inválido" }}</p>
+      ><p>
+        {{
+          !validField("artist")
+            ? ("songs.addSong.form.fieldArtist.name" | translate)
+            : ("songs.addSong.form.fieldArtist.nameError" | translate)
+        }}
+      </p>
       <select formControlName="artist">
         @for (artist of artists(); track $index) {
         <option [value]="artist.id">
@@ -69,6 +118,8 @@
     </label>
   </fieldset>
 
-  <button type="submit" [disabled]="!addSongForm.valid">Crear</button>
+  <button type="submit" [disabled]="!addSongForm.valid">
+    {{ "songs.addSong.form.submit" | translate }}
+  </button>
 </form>
 }

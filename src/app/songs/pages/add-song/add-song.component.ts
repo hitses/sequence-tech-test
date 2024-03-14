@@ -12,11 +12,18 @@ import { HeaderComponent } from '@app/shared/components/header/header.component'
 import { HeaderService } from '@app/shared/services/header.service';
 import { SongsService } from '@app/shared/services/songs.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-song',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, TitleCasePipe, HeaderComponent],
+  imports: [
+    ReactiveFormsModule,
+    NgClass,
+    TitleCasePipe,
+    HeaderComponent,
+    TranslateModule,
+  ],
   templateUrl: './add-song.component.html',
   styleUrl: './add-song.component.scss',
 })
