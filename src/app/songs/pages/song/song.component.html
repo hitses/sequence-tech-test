@@ -6,6 +6,50 @@
   title="{{ song().title }} ({{ artist().name }})"
 />
 <section>
-  <h1>{{ song().title }} ({{ artist().name }})</h1>
+  <header>
+    <h1>{{ song().title }} ({{ artist().name }})</h1>
+
+    <img [src]="song().poster" [alt]="song().title" />
+  </header>
+
+  <article>
+    <ul class="genres">
+      @for (genre of song().genre; track $index) {
+      <li># {{ genre }}</li>
+      }
+    </ul>
+
+    <div class="apart">
+      <h3>Duración:</h3>
+      <time>&nbsp;{{ convertToMinutes(song().duration) }}</time>
+    </div>
+
+    <div class="apart">
+      <h3>Puntuación:</h3>
+      <p>&nbsp;{{ song().rating }}</p>
+    </div>
+
+    <div class="apart">
+      <h3>Año de publicación:</h3>
+      <time>&nbsp;{{ song().year }}</time>
+    </div>
+
+    <div class="apart">
+      <h3>Grupo/Artista:</h3>
+      <p>&nbsp;{{ artist().name }}</p>
+    </div>
+
+    <h3>Compañía discográfica</h3>
+
+    <ul class="companies">
+      <li>una</li>
+      <li>dos</li>
+    </ul>
+
+    <div class="apart">
+      <h3>País:</h3>
+      <p>&nbsp;España</p>
+    </div>
+  </article>
 </section>
 }

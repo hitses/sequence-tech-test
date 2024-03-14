@@ -42,4 +42,11 @@ export default class SongComponent {
     this.song.set({} as Song);
     this.artist.set({} as Artist);
   }
+
+  convertToMinutes(seconds: number): string {
+    const minutes: number = Math.floor(seconds / 60);
+    const remainingSeconds: number = seconds % 60;
+
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  }
 }
