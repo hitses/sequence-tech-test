@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class SideMenuService {
-  isOpen = false;
+  isOpen = signal<boolean>(false);
 
   openMenu() {
-    this.isOpen = true;
+    this.isOpen.set(true);
   }
 
   closeMenu() {
-    this.isOpen = false;
+    this.isOpen.set(false);
   }
 }
