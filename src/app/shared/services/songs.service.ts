@@ -4,11 +4,13 @@ import { Injectable, inject, signal } from '@angular/core';
 import { environment } from '@env/environment';
 
 import { Song } from '@app/shared/models/song.interface';
-import { catchError, map, tap, throwError } from 'rxjs';
+import { catchError, tap, throwError } from 'rxjs';
+import { ArtistsService } from './artists.service';
 
 @Injectable({ providedIn: 'root' })
 export class SongsService {
   private readonly http = inject(HttpClient);
+  private readonly artistsService = inject(ArtistsService);
   private readonly url = environment.apiUrl;
 
   songs = signal<Song[]>([]);
@@ -29,12 +31,14 @@ export class SongsService {
       .subscribe();
   }
 
-  getSongById(id: number) {
+  getSongAndArtistById(id: number) {
     this.http
       .get<Song>(`${this.url}/songs/${id}`)
       .pipe(
         tap((data: Song) => {
           this.song.set(data);
+
+          return this.artistsService.getArtistById(data.artist);
         })
       )
       .subscribe();
