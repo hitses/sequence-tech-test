@@ -29,6 +29,13 @@ form {
         font-size: 0.8rem;
         color: #aaa;
       }
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
     }
   }
   button {
