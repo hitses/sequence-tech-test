@@ -47,7 +47,13 @@
       "company": "Compañía discográfica",
       "companies": "Compañías discográficas",
       "country": "País",
-      "countries": "Países"
+      "countries": "Países",
+      "delete": {
+        "title": "Estás a punto de borrar {{value}}",
+        "text": "Esto eliminará de forma permanente tu canción",
+        "confirm": "Sí, eliminar",
+        "cancel": "Mejor me lo pienso"
+      }
     }
   }
 }
