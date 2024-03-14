@@ -55,6 +55,8 @@
       </p>
       <input
         type="number"
+        min="0"
+        [max]="currentYear()"
         [placeholder]="
           'songs.addSong.form.fieldSong.yearPlaceholder' | translate
         "
@@ -72,6 +74,8 @@
       </p>
       <input
         type="number"
+        min="10"
+        max="3600"
         [placeholder]="
           'songs.addSong.form.fieldSong.durationPlaceholder' | translate
         "
@@ -89,6 +93,8 @@
       </p>
       <input
         type="number"
+        min="0"
+        max="10"
         [placeholder]="
           'songs.addSong.form.fieldSong.ratingPlaceholder' | translate
         "

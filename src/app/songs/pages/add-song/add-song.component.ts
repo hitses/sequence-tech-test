@@ -1,5 +1,5 @@
 import { NgClass, TitleCasePipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -36,6 +36,7 @@ export default class AddSongComponent {
   private readonly toastr = inject(ToastrService);
 
   artists = this.artistsService.artists;
+  currentYear = signal<number>(new Date().getFullYear());
 
   addSongForm: FormGroup;
 
@@ -63,7 +64,7 @@ export default class AddSongComponent {
         [
           Validators.required,
           Validators.min(0),
-          Validators.max(new Date().getFullYear()),
+          Validators.max(this.currentYear()),
         ],
       ],
       duration: [
