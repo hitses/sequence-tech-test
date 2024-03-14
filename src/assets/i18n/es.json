@@ -1,5 +1,52 @@
 {
-  "main": {
-    "title": "Hola mundo"
+  "songs": {
+    "title": "Canciones",
+    "menu": {
+      "title": "Menú",
+      "songs": "Canciones",
+      "artists": "Artistas",
+      "companies": "Compañías discográficas",
+      "closeAlt": "Icono de una equis para cerrar menú",
+      "arrowRightAlt": "Icono de flecha hacia la derecha"
+    },
+    "addSongButton": "Botón para añadir una nueva canción",
+    "addSong": {
+      "title": "Nueva canción",
+      "form": {
+        "fieldSong": {
+          "legend": "Canción",
+          "title": "Título",
+          "titleError": "Título inválido",
+          "titlePlaceholder": "Indica el título de la canción",
+          "genres": "Géneros",
+          "genresError": "Géneros inválidos",
+          "genresPlaceholder": "Añade géneros separados por comaseros",
+          "year": "Año",
+          "yearError": "Año inválido",
+          "yearPlaceholder": "Indica el año de lanzamiento",
+          "duration": "Duración",
+          "durationError": "Duració inválida",
+          "durationPlaceholder": "Indica la duración de la canción en segundos",
+          "rating": "Puntuación",
+          "ratingError": "Puntuación inválida",
+          "ratingPlaceholder": "Indica la puntuación de la canción"
+        },
+        "fieldArtist": {
+          "legend": "Artistas",
+          "name": "Nombre",
+          "nameError": "Nombre inválido"
+        },
+        "submit": "Añadir canción"
+      }
+    },
+    "song": {
+      "duration": "Duración",
+      "rating": "Puntuación",
+      "year": "Año de publicación",
+      "artist": "Grupo/Artista",
+      "company": "Compañía discográfica",
+      "companies": "Compañías discográficas",
+      "country": "País"
+    }
   }
 }
