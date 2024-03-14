@@ -9,12 +9,12 @@ import { ArtistsService } from '@app/shared/services/artists.service';
 import { Artist } from '@app/shared/models/artist.interface';
 import { CompaniesService } from '@app/shared/services/companies.service';
 import { Company } from '@app/shared/models/company.interface';
-import { JsonPipe } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-song',
   standalone: true,
-  imports: [HeaderComponent, JsonPipe],
+  imports: [HeaderComponent, TranslateModule],
   templateUrl: './song.component.html',
   styleUrl: './song.component.scss',
 })

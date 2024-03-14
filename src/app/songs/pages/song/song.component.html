@@ -20,22 +20,22 @@
     </ul>
 
     <div class="apart">
-      <h3>Duración:</h3>
+      <h3>{{ "songs.song.duration" | translate }}:</h3>
       <time>&nbsp;{{ convertToMinutes(song().duration) }}</time>
     </div>
 
     <div class="apart">
-      <h3>Puntuación:</h3>
+      <h3>{{ "songs.song.rating" | translate }}:</h3>
       <p>&nbsp;{{ song().rating }}</p>
     </div>
 
     <div class="apart">
-      <h3>Año de publicación:</h3>
+      <h3>{{ "songs.song.year" | translate }}:</h3>
       <time>&nbsp;{{ song().year }}</time>
     </div>
 
     <div class="apart">
-      <h3>Grupo/Artista:</h3>
+      <h3>{{ "songs.song.artist" | translate }}:</h3>
       <p>&nbsp;{{ artist().name }}</p>
     </div>
 
@@ -43,8 +43,8 @@
     <h3>
       {{
         company().length > 1
-          ? "Compañías discográficas"
-          : "Compañía discográfica"
+          ? ("songs.song.companies" | translate)
+          : ("songs.song.company" | translate)
       }}
     </h3>
 
@@ -56,7 +56,7 @@
     }
 
     <div class="apart">
-      <h3>País:</h3>
+      <h3>{{ "songs.song.country" | translate }}:</h3>
       <p>&nbsp;España</p>
     </div>
   </article>
