@@ -4,7 +4,7 @@ import { Injectable, inject, signal } from '@angular/core';
 import { environment } from '@env/environment';
 
 import { Song } from '@app/shared/models/song.interface';
-import { catchError, tap, throwError } from 'rxjs';
+import { catchError, map, tap, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class SongsService {
@@ -12,6 +12,7 @@ export class SongsService {
   private readonly url = environment.apiUrl;
 
   songs = signal<Song[]>([]);
+  song = signal<Song>({} as Song);
 
   constructor() {
     this.getSongs();
@@ -29,7 +30,14 @@ export class SongsService {
   }
 
   getSongById(id: number) {
-    return this.http.get<Song>(`${this.url}/songs/${id}`);
+    this.http
+      .get<Song>(`${this.url}/songs/${id}`)
+      .pipe(
+        tap((data: Song) => {
+          this.song.set(data);
+        })
+      )
+      .subscribe();
   }
 
   addSong(song: Song) {
