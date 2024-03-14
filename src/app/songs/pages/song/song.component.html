@@ -48,17 +48,26 @@
       }}
     </h3>
 
-    <ul class="companies">
+    <ul class="companies-countries">
       @for (comp of company(); track $index) {
       <li>{{ comp.name }}</li>
       }
     </ul>
-    }
 
-    <div class="apart">
-      <h3>{{ "songs.song.country" | translate }}:</h3>
-      <p>&nbsp;España</p>
-    </div>
+    <h3>
+      {{
+        company().length > 1
+          ? ("songs.song.countries" | translate)
+          : ("songs.song.country" | translate)
+      }}
+    </h3>
+
+    <ul class="companies-countries">
+      @for (comp of company(); track $index) {
+      <li>{{ comp.country }}</li>
+      }
+    </ul>
+    }
   </article>
 </section>
 }
