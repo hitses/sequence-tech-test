@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ArtistsService } from '@app/shared/artists.service';
 
 @Component({
   selector: 'app-add-song',
@@ -16,8 +17,9 @@ import {
 })
 export default class AddSongComponent {
   private fb = inject(FormBuilder);
+  private readonly artistsService = inject(ArtistsService);
 
-  artists = signal<any[]>(['Uno', 'Dos', 'Tres', 'Cuatro', 'Cinco']);
+  artists = this.artistsService.artists;
 
   addSongForm: FormGroup;
 

@@ -1,3 +1,7 @@
+@if (artists().length <= 0) {
+<p>Cargando...</p>
+} @else {
+
 <form [formGroup]="addSongForm" (ngSubmit)="addSong()">
   <fieldset>
     <legend>Canción</legend>
@@ -60,13 +64,9 @@
         </option>
         }
       </select>
-      <!-- <input
-        type="text"
-        placeholder="Indica uno o más artistas"
-        formControlName="artist"
-      /> -->
     </label>
   </fieldset>
 
   <button type="submit" [disabled]="!addSongForm.valid">Crear</button>
 </form>
+}
