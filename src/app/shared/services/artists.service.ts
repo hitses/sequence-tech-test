@@ -29,4 +29,15 @@ export class ArtistsService {
       )
       .subscribe();
   }
+
+  getArtistById(id: number) {
+    this.http
+      .get<Artist>(`${this.url}/artists/${id}`)
+      .pipe(
+        tap((data: Artist) => {
+          this.artist.set(data);
+        })
+      )
+      .subscribe();
+  }
 }
