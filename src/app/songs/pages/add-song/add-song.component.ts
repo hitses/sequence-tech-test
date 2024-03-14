@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ArtistsService } from '@app/shared/artists.service';
+import { SongsService } from '@app/shared/songs.service';
 
 @Component({
   selector: 'app-add-song',
@@ -17,6 +18,7 @@ import { ArtistsService } from '@app/shared/artists.service';
 })
 export default class AddSongComponent {
   private fb = inject(FormBuilder);
+  private readonly songsService = inject(SongsService);
   private readonly artistsService = inject(ArtistsService);
 
   artists = this.artistsService.artists;
@@ -25,7 +27,7 @@ export default class AddSongComponent {
 
   constructor() {
     this.addSongForm = this.fb.group({
-      name: [
+      title: [
         ,
         [
           Validators.required,
@@ -82,6 +84,13 @@ export default class AddSongComponent {
 
     song.artist = Number(song.artist);
 
-    console.log(song);
+    this.songsService.addSong(song).subscribe({
+      next: () => {
+        this.addSongForm.reset();
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
   }
 }

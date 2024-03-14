@@ -6,12 +6,12 @@
   <fieldset>
     <legend>Canción</legend>
 
-    <label [ngClass]="!validField('name') ? '' : 'error-text'"
-      ><p>{{ !validField("name") ? "Título" : "Título inválido" }}</p>
+    <label [ngClass]="!validField('title') ? '' : 'error-text'"
+      ><p>{{ !validField("title") ? "Título" : "Título inválido" }}</p>
       <input
         type="text"
         placeholder="Indica el título de la canción"
-        formControlName="name"
+        formControlName="title"
       />
     </label>
 
