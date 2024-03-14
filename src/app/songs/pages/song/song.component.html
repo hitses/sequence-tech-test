@@ -1,1 +1,5 @@
-<p>song works!</p>
+@if(!song().title) {
+<p>Cargando canción...</p>
+} @else {
+{{ song() | json }}
+}
