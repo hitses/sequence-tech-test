@@ -6,8 +6,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ArtistsService } from '@app/shared/artists.service';
 import { SongsService } from '@app/shared/songs.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-song',
@@ -17,9 +19,11 @@ import { SongsService } from '@app/shared/songs.service';
   styleUrl: './add-song.component.scss',
 })
 export default class AddSongComponent {
-  private fb = inject(FormBuilder);
+  private readonly fb = inject(FormBuilder);
+  private readonly router = inject(Router);
   private readonly songsService = inject(SongsService);
   private readonly artistsService = inject(ArtistsService);
+  private readonly toastr = inject(ToastrService);
 
   artists = this.artistsService.artists;
 
@@ -86,7 +90,11 @@ export default class AddSongComponent {
 
     this.songsService.addSong(song).subscribe({
       next: () => {
-        this.addSongForm.reset();
+        this.toastr.success(
+          'Canción añadida',
+          `${song.title} añadida correctamente`
+        );
+        this.router.navigate(['songs']);
       },
       error: (error) => {
         console.error(error);
