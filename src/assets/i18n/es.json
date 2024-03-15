@@ -59,7 +59,8 @@
         "toast": {
           "message": "{{song}} eliminada de tu biblioteca"
         }
-      }
+      },
+      "notFound": "No encontramos la canción que estás buscando. Prueba con otra."
     }
   }
 }
