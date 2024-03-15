@@ -12,11 +12,12 @@ import { Company } from '@app/shared/models/company.interface';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
+import { LoaderComponent } from '@app/shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-song',
   standalone: true,
-  imports: [HeaderComponent, TranslateModule],
+  imports: [HeaderComponent, TranslateModule, LoaderComponent],
   templateUrl: './song.component.html',
   styleUrl: './song.component.scss',
 })
