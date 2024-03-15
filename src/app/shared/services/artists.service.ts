@@ -56,4 +56,23 @@ export class ArtistsService {
       })
     );
   }
+
+  deleteSongToArtist(artistId: number, songId: number) {
+    return this.getArtistById(artistId).pipe(
+      switchMap(() => {
+        this.artist.update((artist) => {
+          artist.songs = artist.songs.filter((id) => id !== songId);
+          return artist;
+        });
+
+        return this.http
+          .put(`${this.url}/artists/${artistId}`, this.artist())
+          .pipe(
+            tap(() => {
+              this.getArtists();
+            })
+          );
+      })
+    );
+  }
 }
