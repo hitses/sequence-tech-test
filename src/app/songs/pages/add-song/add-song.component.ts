@@ -13,6 +13,7 @@ import { HeaderService } from '@app/shared/services/header.service';
 import { SongsService } from '@app/shared/services/songs.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
+import { LoaderComponent } from '@app/shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-add-song',
@@ -23,6 +24,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TitleCasePipe,
     HeaderComponent,
     TranslateModule,
+    LoaderComponent,
   ],
   templateUrl: './add-song.component.html',
   styleUrl: './add-song.component.scss',

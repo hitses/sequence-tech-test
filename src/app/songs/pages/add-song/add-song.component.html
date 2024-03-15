@@ -4,7 +4,7 @@
 />
 
 @if (artists().length <= 0) {
-<p>Cargando formulario...</p>
+<loader-component />
 } @else {
 
 <form [formGroup]="addSongForm" (ngSubmit)="addSong()">
