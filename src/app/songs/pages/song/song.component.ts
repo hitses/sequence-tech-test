@@ -87,6 +87,10 @@ export default class SongComponent {
           if (result.isConfirmed) {
             this.songsService.deleteSongById(this.song().id).subscribe({
               next: () => {
+                this.artistsService
+                  .deleteSongToArtist(this.song().artist, this.song().id)
+                  .subscribe();
+
                 this.toastr.info(
                   'Canción eliminada',
                   `${this.song().title} eliminada de tu biblioteca`
