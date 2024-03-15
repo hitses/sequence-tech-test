@@ -70,8 +70,9 @@ export default class SongComponent {
           'songs.song.delete.text',
           'songs.song.delete.confirm',
           'songs.song.delete.cancel',
+          'songs.song.delete.toast.message',
         ],
-        { value: this.song().title }
+        { song: this.song().title }
       )
       .subscribe((translations) => {
         Swal.fire({
@@ -92,8 +93,7 @@ export default class SongComponent {
                   .subscribe();
 
                 this.toastr.info(
-                  'Canción eliminada',
-                  `${this.song().title} eliminada de tu biblioteca`
+                  translations['songs.song.delete.toast.message']
                 );
                 this.router.navigate(['songs']);
               },
