@@ -7,12 +7,18 @@ import { Song } from '@app/shared/models/song.interface';
 import { catchError, tap, throwError } from 'rxjs';
 import { ArtistsService } from './artists.service';
 import { CompaniesService } from './companies.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({ providedIn: 'root' })
 export class SongsService {
   private readonly http = inject(HttpClient);
   private readonly artistsService = inject(ArtistsService);
   private readonly companiesService = inject(CompaniesService);
+  private readonly router = inject(Router);
+  private readonly toastr = inject(ToastrService);
+  private translate = inject(TranslateService);
   private readonly url = environment.apiUrl;
 
   songs = signal<Song[]>([]);
@@ -42,9 +48,20 @@ export class SongsService {
 
           this.artistsService.getArtistById(data.artist).subscribe();
           this.companiesService.getCompanyBySongId(data.id);
-        })
+        }),
+        catchError((error) => throwError(() => error))
       )
-      .subscribe();
+      .subscribe({
+        next: () => {},
+        error: (error) => {
+          this.translate
+            .get(['songs.song.notFound'])
+            .subscribe((translations) => {
+              this.toastr.info(translations['songs.song.notFound']);
+              if (error.status === 404) this.router.navigate(['songs']);
+            });
+        },
+      });
   }
 
   addSong(song: Song) {
