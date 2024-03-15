@@ -12,7 +12,7 @@ import { HeaderComponent } from '@app/shared/components/header/header.component'
 import { HeaderService } from '@app/shared/services/header.service';
 import { SongsService } from '@app/shared/services/songs.service';
 import { ToastrService } from 'ngx-toastr';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LoaderComponent } from '@app/shared/components/loader/loader.component';
 import { Song } from '@app/shared/models/song.interface';
 
@@ -37,6 +37,7 @@ export default class AddSongComponent {
   private readonly artistsService = inject(ArtistsService);
   private readonly headerService = inject(HeaderService);
   private readonly toastr = inject(ToastrService);
+  private translate = inject(TranslateService);
 
   artists = this.artistsService.artists;
   currentYear = signal<number>(new Date().getFullYear());
@@ -106,19 +107,22 @@ export default class AddSongComponent {
 
     song.artist = Number(song.artist);
 
-    this.songsService.addSong(song).subscribe({
-      next: (song: Song) => {
-        this.artistsService.addSongToArtist(song.artist, song.id).subscribe();
+    this.translate
+      .get(['songs.addSong.toast.message'], { song: song.title })
+      .subscribe((translations) => {
+        this.songsService.addSong(song).subscribe({
+          next: (song: Song) => {
+            this.artistsService
+              .addSongToArtist(song.artist, song.id)
+              .subscribe();
 
-        this.toastr.success(
-          'Canción añadida',
-          `${song.title} añadida correctamente`
-        );
-        this.router.navigate(['songs']);
-      },
-      error: (error) => {
-        console.error(error);
-      },
-    });
+            this.toastr.success(translations['songs.addSong.toast.message']);
+            this.router.navigate(['songs']);
+          },
+          error: (error) => {
+            console.error(error);
+          },
+        });
+      });
   }
 }
