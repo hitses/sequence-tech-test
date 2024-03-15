@@ -3,7 +3,7 @@
 <side-menu-component />
 
 @if (songs().length <= 0) {
-<p>Cargando canciones...</p>
+<loader-component />
 } @else {
 <div class="songs-list">
   @for (song of songs(); track $index) {

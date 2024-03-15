@@ -10,6 +10,7 @@ import { HeaderService } from '@app/shared/services/header.service';
 import { SideMenuComponent } from '@app/shared/components/side-menu/side-menu.component';
 import { SideMenuService } from '@app/shared/services/side-menu.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { LoaderComponent } from '@app/shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-songs',
@@ -20,6 +21,7 @@ import { TranslateModule } from '@ngx-translate/core';
     HeaderComponent,
     SideMenuComponent,
     TranslateModule,
+    LoaderComponent,
   ],
   templateUrl: './songs-list.component.html',
   styleUrl: './songs-list.component.scss',
