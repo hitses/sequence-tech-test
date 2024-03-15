@@ -14,6 +14,7 @@ import { SongsService } from '@app/shared/services/songs.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoaderComponent } from '@app/shared/components/loader/loader.component';
+import { Song } from '@app/shared/models/song.interface';
 
 @Component({
   selector: 'app-add-song',
@@ -106,7 +107,9 @@ export default class AddSongComponent {
     song.artist = Number(song.artist);
 
     this.songsService.addSong(song).subscribe({
-      next: () => {
+      next: (song: Song) => {
+        this.artistsService.addSongToArtist(song.artist, song.id).subscribe();
+
         this.toastr.success(
           'Canción añadida',
           `${song.title} añadida correctamente`
