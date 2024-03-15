@@ -37,6 +37,9 @@
           "nameError": "Nombre inválido"
         },
         "submit": "Añadir canción"
+      },
+      "toast": {
+        "message": "{{song}} añadida correctamente"
       }
     },
     "song": {
@@ -49,10 +52,13 @@
       "country": "País",
       "countries": "Países",
       "delete": {
-        "title": "Estás a punto de borrar {{value}}",
+        "title": "Estás a punto de borrar {{song}}",
         "text": "Esto eliminará de forma permanente tu canción",
         "confirm": "Sí, eliminar",
-        "cancel": "Mejor me lo pienso"
+        "cancel": "Mejor me lo pienso",
+        "toast": {
+          "message": "{{song}} eliminada de tu biblioteca"
+        }
       }
     }
   }
