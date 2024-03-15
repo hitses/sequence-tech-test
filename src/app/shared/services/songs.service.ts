@@ -40,7 +40,7 @@ export class SongsService {
         tap((data: Song) => {
           this.song.set(data);
 
-          this.artistsService.getArtistById(data.artist);
+          this.artistsService.getArtistById(data.artist).subscribe();
           this.companiesService.getCompanyBySongId(data.id);
         })
       )
